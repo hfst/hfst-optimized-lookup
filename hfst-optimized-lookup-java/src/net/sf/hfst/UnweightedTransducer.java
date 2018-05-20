@@ -1,7 +1,7 @@
 package net.sf.hfst;
 
 import java.io.BufferedInputStream;
-import java.io.FileInputStream;
+import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.*;
 
@@ -57,7 +57,7 @@ public class UnweightedTransducer extends Transducer
     {
 	private TransitionIndex[] indices;
 	
-	public IndexTable(FileInputStream filestream,
+	public IndexTable(InputStream filestream,
 			  Integer indicesCount) throws java.io.IOException
 	{
 	    ByteArray b = new ByteArray((int) indicesCount*6);
@@ -127,7 +127,7 @@ public class UnweightedTransducer extends Transducer
     {
 	private Transition[] transitions;
 
-	public TransitionTable(FileInputStream filestream,
+	public TransitionTable(InputStream filestream,
 			       Integer transitionCount) throws java.io.IOException
 	{
 	    ByteArray b = new ByteArray((int) transitionCount*8);
@@ -163,7 +163,7 @@ public class UnweightedTransducer extends Transducer
     protected int outputPointer;
     protected int inputPointer;
     
-    public UnweightedTransducer(FileInputStream file, TransducerHeader h, TransducerAlphabet a) throws java.io.IOException
+    public UnweightedTransducer(InputStream file, TransducerHeader h, TransducerAlphabet a) throws java.io.IOException
     {
 	header = h;
 	alphabet = a;

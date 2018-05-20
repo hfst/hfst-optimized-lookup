@@ -1,7 +1,7 @@
 package net.sf.hfst;
 
 //import java.io.DataInputStream;
-import java.io.FileInputStream;
+import java.io.InputStream;
 import net.sf.hfst.FormatException;
 
 /**
@@ -34,7 +34,7 @@ public class TransducerHeader
      * Read in the (56 bytes of) header information, which unfortunately
      * is mostly in little-endian unsigned form.
      */
-    public TransducerHeader(FileInputStream file) throws java.io.IOException, FormatException
+    public TransducerHeader(InputStream file) throws java.io.IOException, FormatException
     {
 	hfst3 = false;
 	intact = true; // could add some checks to toggle this and check outside
@@ -77,7 +77,7 @@ public class TransducerHeader
 		bytes.getUByte() == 0);
     }
 
-    public void read_hfst3_header(FileInputStream file) throws java.io.IOException, FormatException
+    public void read_hfst3_header(InputStream file) throws java.io.IOException, FormatException
     {
         // The only thing we really check is that the format begins with
         // HFST_OL. First we read the two bytes giving the header size...
